@@ -81,6 +81,9 @@
 			}
 			
 		}
+		
+		var isvalidId = false;
+		var isvalipassword = false;
 	
 		$().ready(function(){
 			
@@ -91,25 +94,24 @@
 			
 		});
 		
-		$().readt(function() {
+		$().ready(function() {
 			
-			$("#duplicatedIdCheck").cilck(function name() {
+			$("#confirepasswd").blur(function() {
 				
-				$.ajax({
-					
-					url : "register",
-					type : "post",
-					data : {"id" : $("#id").val()}
-					success : function(data) {
-						
-					}
-				})
+				if ($("#passwd").val() == $("#confirepasswd").val()) {
+					$("#msg").html("<span style='color:green;'>패스워드 일치</span>");
+					isvalipassword = true;
+				}
+				else {
+					$("#msg").html("<span style='color:red;'>패스워드 불일치</span>");
+					isvalipassword = false;
+				}
 				
-			});
-			
-			
+			})
 			
 		});
+		
+	
 
 	</script>
 </head>
@@ -194,6 +196,8 @@
                                 <div class="checkout__form__input">
                                     <p>비밀번호 </p>
                                     <input type="password" name="passwd" placeholder="비밀번호를 입력하세요.">
+                                    <p>비밀번호 확인 </p>
+                                    <input type="password" id="confirepasswd" name="passwd" placeholder="비밀번호를 입력하세요."><span id="msg"></span>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>이름 </p>
