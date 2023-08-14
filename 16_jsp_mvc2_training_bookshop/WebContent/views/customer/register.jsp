@@ -88,6 +88,7 @@
 		$().ready(function(){
 			
 			$("form").submit(function(){
+				
 				var birthDt = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val();
 				$("[name='birthDt']").val(birthDt);
 			});
@@ -107,11 +108,31 @@
 					isvalipassword = false;
 				}
 				
-			})
+			});
 			
+			$("#duplicatedIdCheck").click(function() {
+				
+				$.ajax({
+					
+					url : "checkDuplicate",
+					type : "get",
+					data : {"memberId" : $("#memberId").val()},
+					success : function(result) {
+						if ( result == "isDuple") {
+							$("#overcheckMsg").html("<span style='color:red;'>사용할 수 없는 아이디 입니다.</span>")
+							isvalidId = false;
+						}
+						else {
+							$("#overcheckMsg").html("<span style='color:green;'>사용할 수 있는 아이디 입니다.</span>")
+							isvalidId = true;
+						}
+					}
+				});
+			});
 		});
+			
 		
-	
+			
 
 	</script>
 </head>
@@ -183,25 +204,25 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <form action="register" method="post" class="checkout__form">
+            <form action="register" method="post" class="checkout__form" onsubmit="return checkFormData();">
                     <div class="col-lg-8">
                         <h5>회원가입</h5>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>아이디 </p>
-                                    <input type="text" id = "id" name="memberId" placeholder="아이디를 입력하세요.">
-                               		<input type="button" id="duplicatedIdCheck"  value="중복확인">
+                                    <input type="text" id ="memberId" name="memberId" placeholder="아이디를 입력하세요." required>
+                               		<input type="button" id="duplicatedIdCheck"  value="중복확인"><span id="overcheckMsg"></span>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>비밀번호 </p>
-                                    <input type="password" name="passwd" placeholder="비밀번호를 입력하세요.">
+                                    <input type="password" id="passwd"  name="passwd" placeholder="비밀번호를 입력하세요." required>
                                     <p>비밀번호 확인 </p>
-                                    <input type="password" id="confirepasswd" name="passwd" placeholder="비밀번호를 입력하세요."><span id="msg"></span>
+                                    <input type="password" id="confirepasswd"  placeholder="비밀번호를 입력하세요."><span id="msg"></span>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>이름 </p>
-                                    <input type="text" name="memberNm" placeholder="이름을 입력하세요." >
+                                    <input type="text" name="memberNm" placeholder="이름을 입력하세요." required>
                                 </div>
                                 <div>
                                     <p>성별 </p>
@@ -243,7 +264,7 @@
                                 </div><br>
                                  <div class="checkout__form__input">
                                     <p>연락처 </p>
-                                    <input type="text" name="hp" placeholder="-를 포함해서 입력하세요." ><br>
+                                    <input type="text" name="hp" placeholder="-를 포함해서 입력하세요." required><br>
                                 </div>
                                 <div class="checkout__form__checkbox">
                                     <label for="smsstsYn">

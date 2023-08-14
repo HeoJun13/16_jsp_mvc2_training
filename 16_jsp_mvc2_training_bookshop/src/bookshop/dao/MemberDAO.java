@@ -248,6 +248,30 @@ public class MemberDAO {
         }
     	
     }
+    
+    public boolean checkDuplicate(String memberId) {
+		
+    	boolean isDuple = false;
+    	
+    		try {
+    			
+    			getConnection();
+    			pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE MEMBER_ID = ?");
+    			pstmt.setString(1, memberId);
+    			rs = pstmt.executeQuery();
+    			
+    			if (rs.next()) {
+					 isDuple = true;
+				}
+			
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}finally {
+    			getClose();
+    		}
+    	
+    	return isDuple;
+	}
 	
 	
 }
