@@ -151,22 +151,20 @@
                                 <div class="accordion" id="accordionExample">
                                     <div class="card">
                                         <div class="card-heading active">
-                                            <a href="" data-toggle="collapse" data-target="#collapseOne">전체</a>
+                                            <a href="bookList.jsp" onclick="location.href='bookList'" data-toggle="collapse" data-target="#collapseOne">전체</a>
                                         </div>
                                  
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a href="koreabookList.jsp" data-toggle="collapse" data-target="#collapseTwo" onclick="KoreabookList'">국내독서</a>
+                                            <a href="newbookList.jsp" onclick="location.href='NewBook'" data-toggle="collapse" data-target="#collapseTwo">NEW!</a>
                                         </div>
                                         <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseThree">외국독서</a>
+                                            <a data-toggle="collapse" data-target="#collapseThree">국내독서</a>
                                         </div>
                                         <div id="collapseThree" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -175,7 +173,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFour">핫트랙스</a>
+                                            <a data-toggle="collapse" data-target="#collapseFour">외국독서</a>
                                         </div>
                                         <div id="collapseFour" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">
@@ -184,7 +182,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a data-toggle="collapse" data-target="#collapseFive">ONLYHERE</a>
+                                            <a data-toggle="collapse" data-target="#collapseFive">핫트랙스</a>
                                         </div>
                                         <div id="collapseFive" class="collapse" data-parent="#accordionExample">
                                             <div class="card-body">

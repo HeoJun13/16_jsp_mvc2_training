@@ -1,4 +1,4 @@
-package bookshop.controller.customer.member;
+package bookshop.controller.customer.book;
 
 import java.io.IOException;
 
